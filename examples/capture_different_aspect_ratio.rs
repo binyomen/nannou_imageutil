@@ -1,6 +1,7 @@
 use {
     nannou::{app::App, frame::Frame},
     nannou_imageutil::capture::CaptureHelper,
+    std::fs,
 };
 
 fn main() {
@@ -20,7 +21,7 @@ fn model(app: &App) -> Model {
         .unwrap();
 
     // Make sure the directory where we will save images to exists.
-    std::fs::create_dir_all(&capture_directory(app)).unwrap();
+    fs::create_dir_all(&capture_directory(app)).unwrap();
 
     Model {
         capture_helper: CaptureHelper::from_main_window(app, [2000, 2000]),
